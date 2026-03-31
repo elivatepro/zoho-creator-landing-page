@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stop Running Your Business on Spreadsheets | Boko Isaac</title>
+<meta name="description" content="I turn messy spreadsheets into custom business apps, client portals, dashboards, and workflow tools using Zoho Creator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   WARM EDITORIAL — NOT A DARK TEMPLATE
+   Inspired by: Basecamp warmth, Notion clarity,
+   Shopify simplicity. Uses Boko's cream palette.
+   ======================================== */
+
+:root {
+  --cream: #fdfaf3;
+  --cream-dark: #f5f0e3;
+  --ink: #1a1714;
+  --ink-soft: #3d3830;
+  --ink-muted: #7a7265;
+  --ink-faint: #b5ad9f;
+  --gold: #c4960a;
+  --gold-light: #f0d96b;
+  --gold-bg: #fdf6d8;
+  --red: #c0392b;
+  --red-bg: #fdf0ee;
+  --green: #1e7a5e;
+  --green-bg: #edf7f3;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Onest', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ========================================
+   STICKY NAV — minimal, warm
+   ======================================== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253,250,243,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid rgba(26,23,20,0.07);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.topbar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.topbar-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(26,23,20,0.15);
+}
+
+/* ========================================
+   HERO — big serif headline, warm & human
+   ======================================== */
+.hero {
+  padding: 100px 0 72px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--red-bg);
+  color: var(--red);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 6px;
+  margin-bottom: 28px;
+}
+
+.hero-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  max-width: 780px;
+  margin: 0 auto 24px;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  position: relative;
+}
+
+.hero h1 em::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 4px;
+  height: 10px;
+  background: var(--gold);
+  opacity: 0.3;
+  border-radius: 2px;
+  z-index: -1;
+}
+
+.hero-p {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 30px;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--sans);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,23,20,0.18);
+}
+
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 28px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid rgba(26,23,20,0.12);
+  transition: all 0.2s;
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+.btn-light:hover {
+  border-color: rgba(26,23,20,0.25);
+  color: var(--ink);
+}
+
+/* ========================================
+   TRUST STRIP
+   ======================================== */
+.trust {
+  padding: 0 0 64px;
+  text-align: center;
+}
+
+.trust-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+
+.trust-item strong {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.trust-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink-faint);
+}
+
+/* ========================================
+   BEFORE / AFTER — THE VISUAL PROOF
+   Big image placeholders for screenshots
+   ======================================== */
+.visual-proof {
+  padding: 72px 0;
+}
+
+.visual-proof-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-tag {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.visual-proof h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ba-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 20px;
+}
+
+.ba-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(26,23,20,0.08);
+  background: var(--white);
+}
+
+.ba-label {
+  padding: 12px 20px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ba-label.before-label {
+  background: var(--red-bg);
+  color: var(--red);
+  border-bottom: 1.5px solid rgba(192,57,43,0.1);
+}
+
+.ba-label.after-label {
+  background: var(--green-bg);
+  color: var(--green);
+  border-bottom: 1.5px solid rgba(30,122,94,0.1);
+}
+
+.ba-image-zone {
+  height: 400px;
+  background: var(--cream-dark);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ba-scroll-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: scrollImages 20s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.ba-image-zone:hover .ba-scroll-strip {
+  animation-play-state: paused;
+}
+
+.ba-scroll-strip img {
+  width: 100%;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes scrollImages {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26,23,20,0.88);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 92vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.lightbox-nav:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.lightbox-nav.prev { left: 20px; }
+.lightbox-nav.next { right: 20px; }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.82rem;
+  font-family: var(--mono);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.ba-caption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ========================================
+   PROBLEMS — editorial list, not cards
+   ======================================== */
+.problems {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.problems h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.problem-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+
+.problem-item {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(26,23,20,0.06);
+}
+
+.problem-item-num {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--red);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.problem-item h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.problem-item p {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* ========================================
+   WHAT CHANGES — before/after text
+   ======================================== */
+.changes {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.changes h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.changes-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: stretch;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.changes-col {
+  padding: 32px;
+  border-radius: 14px;
+}
+
+.changes-col.col-before {
+  background: var(--red-bg);
+  border: 1.5px solid rgba(192,57,43,0.08);
+}
+
+.changes-col.col-after {
+  background: var(--green-bg);
+  border: 1.5px solid rgba(30,122,94,0.08);
+}
+
+.changes-col-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  margin-bottom: 18px;
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.col-before .changes-col-label {
+  color: var(--red);
+  background: rgba(192,57,43,0.08);
+}
+
+.col-after .changes-col-label {
+  color: var(--green);
+  background: rgba(30,122,94,0.08);
+}
+
+.changes-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.changes-col li {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding-left: 22px;
+  position: relative;
+  color: var(--ink-soft);
+}
+
+.col-before li::before {
+  content: '\d7';
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-weight: 700;
+  color: var(--red);
+  font-size: 1.1rem;
+}
+
+.col-after li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--green);
+  font-size: 0.95rem;
+}
+
+.changes-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changes-arrow span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1.5px solid rgba(26,23,20,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   WHAT YOU GET
+   ======================================== */
+.offer {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.offer h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.offer > .wrap > .offer-sub {
+  color: var(--ink-muted);
+  font-size: 1.02rem;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.offer-card {
+  background: var(--white);
+  border: 1.5px solid rgba(26,23,20,0.06);
+  border-radius: 14px;
+  padding: 28px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(26,23,20,0.06);
+}
+
+.offer-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--gold-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.offer-card h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.offer-card p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* ========================================
+   HOW IT WORKS — 3 numbered steps
+   ======================================== */
+.process {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.process h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+}
+
+.step-n {
+  font-family: var(--serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.step h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+/* ========================================
+   PRICING
+   ======================================== */
+.pricing {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.pricing h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.pricing-sub {
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 1rem;
+  margin-bottom: 44px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto 32px;
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1.5px solid rgba(26,23,20,0.06);
+  border-radius: 14px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(26,23,20,0.06);
+}
+
+.pricing-card.featured {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold);
+}
+
+.pricing-card.featured:hover {
+  box-shadow: 0 0 0 1px var(--gold), 0 8px 32px rgba(196,150,10,0.1);
+}
+
+.pricing-popular {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.pricing-card-name {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 8px;
+}
+
+.pricing-card-price {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.pricing-card-note {
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+.pricing-card-desc {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 0;
+}
+
+.pricing-card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.pricing-card-list li {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.pricing-card-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--green);
+  font-size: 0.85rem;
+}
+
+.pricing-card-cta {
+  display: block;
+  text-align: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: var(--sans);
+  margin-top: auto;
+}
+
+.pricing-card-cta.cta-outline {
+  border: 1.5px solid rgba(26,23,20,0.12);
+  color: var(--ink-soft);
+  background: transparent;
+}
+
+.pricing-card-cta.cta-outline:hover {
+  border-color: rgba(26,23,20,0.25);
+  color: var(--ink);
+}
+
+.pricing-card-cta.cta-filled {
+  background: var(--ink);
+  color: var(--cream);
+  border: 1.5px solid var(--ink);
+}
+
+.pricing-card-cta.cta-filled:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(26,23,20,0.15);
+}
+
+.pricing-footer {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.pricing-footer strong {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+/* ========================================
+   TESTIMONIALS — Scrolling marquee
+   ======================================== */
+.testimonials {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+  overflow: hidden;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 28px;
+}
+
+.testimonials h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.testimonials-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  padding: 0 28px;
+}
+
+.t-num {
+  text-align: center;
+}
+
+.t-num .big {
+  font-family: var(--serif);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.t-num .lbl {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* Marquee track */
+.t-marquee {
+  position: relative;
+  width: 100%;
+}
+
+.t-marquee::before,
+.t-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.t-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--cream), transparent);
+}
+
+.t-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--cream), transparent);
+}
+
+.t-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollTestimonials 45s linear infinite;
+  width: max-content;
+}
+
+.t-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTestimonials {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual card */
+.t-card {
+  background: var(--white);
+  border: 1.5px solid rgba(26,23,20,0.06);
+  border-radius: 14px;
+  padding: 28px;
+  width: 380px;
+  min-width: 380px;
+  flex-shrink: 0;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.t-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(26,23,20,0.06);
+}
+
+.t-card-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 14px;
+  color: var(--gold);
+  font-size: 0.9rem;
+}
+
+.t-card blockquote {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.t-card-result {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.t-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.t-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cream-dark);
+  border: 1.5px solid rgba(26,23,20,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.t-card-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.t-card-role {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+
+@media (max-width: 480px) {
+  .t-card {
+    width: 300px;
+    min-width: 300px;
+    padding: 22px;
+  }
+
+  .testimonials-numbers { gap: 28px; }
+}
+
+/* ========================================
+   ABOUT — human, not a card grid
+   ======================================== */
+.about {
+  padding: 72px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.about-box {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: start;
+  max-width: 780px;
+}
+
+.about-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--gold-bg);
+  border: 3px solid var(--gold-light);
+  overflow: hidden;
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.about-text .title {
+  font-size: 0.88rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.about-tags span {
+  padding: 4px 12px;
+  background: var(--cream-dark);
+  border: 1px solid rgba(26,23,20,0.06);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+/* ========================================
+   FINAL CTA
+   ======================================== */
+.final-cta {
+  padding: 80px 0 100px;
+  text-align: center;
+}
+
+.final-cta-box {
+  background: var(--ink);
+  color: var(--cream);
+  border-radius: 20px;
+  padding: 72px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-box::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(196,150,10,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.final-cta p {
+  font-size: 1.05rem;
+  color: rgba(253,250,243,0.7);
+  max-width: 460px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  position: relative;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 34px;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.98rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--sans);
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196,150,10,0.3);
+}
+
+.final-sub {
+  font-size: 0.82rem;
+  color: rgba(253,250,243,0.4);
+  margin-top: 14px;
+  position: relative;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  padding: 32px 0;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-left {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--ink); }
+
+/* ========================================
+   REVEAL ANIMATION
+   ======================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .hero { padding: 80px 0 56px; }
+
+  .ba-container {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-list {
+    grid-template-columns: 1fr;
+  }
+
+  .changes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .changes-arrow {
+    padding: 4px 0;
+  }
+
+  .changes-arrow span {
+    transform: rotate(90deg);
+  }
+
+  .offer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .testimonials-numbers { gap: 28px; }
+
+  .about-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-avatar { margin: 0 auto; }
+
+  .about-tags { justify-content: center; }
+
+  .final-cta-box { padding: 48px 24px; }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .trust-dot { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-actions { flex-direction: column; }
+  .btn-dark, .btn-light, .btn-gold { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar">
+  <a href="https://bokoisaac.pro" target="_blank" class="topbar-name" style="text-decoration:none;">Boko Isaac</a>
+  <a href="https://cal.com/bokox/zoho" target="_blank" class="topbar-cta">
+    Book a free call
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Your spreadsheet is holding you back
+    </div>
+    <h1>Turn your messy spreadsheet into a <em>real business app</em></h1>
+    <p class="hero-p">You've outgrown Google Sheets. I build custom Zoho Creator apps that replace the chaos with portals, dashboards, approval flows, and workflows that actually scale with your team.</p>
+    <div class="hero-actions">
+      <a href="https://cal.com/bokox/zoho" target="_blank" class="btn-dark">
+        Book your free discovery call
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#how-it-works" class="btn-light">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="trust-row">
+      <span class="trust-item"><strong>70+</strong> projects built</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><strong>40+</strong> clients served</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><strong>7</strong> years experience</span>
+      <span class="trust-dot"></span>
+      <span class="trust-item"><strong>96%</strong> satisfaction</span>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER IMAGES -->
+<section class="visual-proof reveal">
+  <div class="wrap">
+    <div class="visual-proof-header">
+      <span class="section-tag">Before &amp; After</span>
+      <h2>From spreadsheet chaos to a real app</h2>
+    </div>
+
+    <div class="ba-container">
+      <!-- BEFORE IMAGE -->
+      <div class="ba-frame">
+        <div class="ba-label before-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Before — The Spreadsheet
+        </div>
+        <div class="ba-image-zone" onclick="openLightbox('before', 0)">
+          <div class="ba-scroll-strip">
+            <img src="before/Sample Inventory v1 - 1.png" alt="Spreadsheet copyright tab">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_02_AM.png" alt="Spreadsheet inventory tab">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM.png" alt="Spreadsheet inventory detail">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM (1).png" alt="Spreadsheet family wealth tab">
+            <!-- Duplicate for seamless loop -->
+            <img src="before/Sample Inventory v1 - 1.png" alt="Spreadsheet copyright tab">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_02_AM.png" alt="Spreadsheet inventory tab">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM.png" alt="Spreadsheet inventory detail">
+            <img src="before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM (1).png" alt="Spreadsheet family wealth tab">
+          </div>
+        </div>
+      </div>
+
+      <!-- AFTER IMAGE -->
+      <div class="ba-frame">
+        <div class="ba-label after-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          After — The Custom App
+        </div>
+        <div class="ba-image-zone" onclick="openLightbox('after', 0)">
+          <div class="ba-scroll-strip">
+            <img src="after/Family-Wealth-Inventory-Login-04-01-2026_12_08_AM.png" alt="App login page">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Client-Dashboard-04-01-2026_12_05_AM.png" alt="Client dashboard">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Firm-Dashboard-04-01-2026_12_10_AM.png" alt="Firm dashboard">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Admin-Dashboard-04-01-2026_12_12_AM.png" alt="Admin dashboard">
+            <!-- Duplicate for seamless loop -->
+            <img src="after/Family-Wealth-Inventory-Login-04-01-2026_12_08_AM.png" alt="App login page">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Client-Dashboard-04-01-2026_12_05_AM.png" alt="Client dashboard">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Firm-Dashboard-04-01-2026_12_10_AM.png" alt="Firm dashboard">
+            <img src="after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Admin-Dashboard-04-01-2026_12_12_AM.png" alt="Admin dashboard">
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="ba-caption">Real client transformation. Same data, completely different experience.</p>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems reveal">
+  <div class="wrap">
+    <span class="section-tag">The problem</span>
+    <h2>Spreadsheets weren't built to run your operations</h2>
+    <div class="problem-list">
+      <div class="problem-item">
+        <span class="problem-item-num">01</span>
+        <h3>Version chaos</h3>
+        <p>Five people editing the same Google Sheet. Nobody knows which version is current. Data gets overwritten weekly.</p>
+      </div>
+      <div class="problem-item">
+        <span class="problem-item-num">02</span>
+        <h3>Zero access control</h3>
+        <p>Everyone sees everything: pricing, salaries, client notes. There's no way to limit who sees what.</p>
+      </div>
+      <div class="problem-item">
+        <span class="problem-item-num">03</span>
+        <h3>Manual everything</h3>
+        <p>Copy-pasting between tabs, sending manual follow-ups, exporting CSVs. Hours lost to work a machine should do.</p>
+      </div>
+      <div class="problem-item">
+        <span class="problem-item-num">04</span>
+        <h3>No real reporting</h3>
+        <p>You're making decisions on gut feeling because pulling actual numbers takes half a day of pivot tables.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER TEXT -->
+<section class="changes reveal">
+  <div class="wrap">
+    <h2>What changes when you ditch the spreadsheet</h2>
+    <div class="changes-grid">
+      <div class="changes-col col-before">
+        <span class="changes-col-label">Now</span>
+        <ul>
+          <li>Team overwrites each other's data</li>
+          <li>No audit trail: who changed what?</li>
+          <li>Clients email you for status updates</li>
+          <li>Reporting takes hours of manual work</li>
+          <li>New hires take weeks to learn "the sheet"</li>
+        </ul>
+      </div>
+      <div class="changes-arrow"><span>&rarr;</span></div>
+      <div class="changes-col col-after">
+        <span class="changes-col-label">After</span>
+        <ul>
+          <li>Role-based access: everyone sees only their data</li>
+          <li>Full change history on every record</li>
+          <li>Client portal with real-time status view</li>
+          <li>Live dashboards that update automatically</li>
+          <li>Onboarding is "here's your login"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="offer reveal">
+  <div class="wrap">
+    <span class="section-tag">What you get</span>
+    <h2>A custom app built around how you actually work</h2>
+    <p class="offer-sub">Every build starts from your existing workflow, not a template.</p>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-card-icon">&#9881;</div>
+        <h3>Custom Zoho Creator App</h3>
+        <p>Your spreadsheet logic rebuilt as a real application: forms, workflows, validations. Looks and feels like a product, not a spreadsheet with lipstick.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">&#128274;</div>
+        <h3>Client or Team Portal</h3>
+        <p>Give clients or team members their own login to view statuses, submit requests, and access only what they should. No more email ping-pong.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">&#128200;</div>
+        <h3>Live Dashboards &amp; Reports</h3>
+        <p>Real-time data views that update themselves. Revenue, pipeline, project status: whatever metrics matter to your decisions.</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-card-icon">&#9889;</div>
+        <h3>Automated Workflows</h3>
+        <p>Approvals, notifications, task assignments, follow-ups: triggered automatically. The repetitive stuff runs itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process reveal" id="how-it-works">
+  <div class="wrap">
+    <span class="section-tag" style="text-align:center;display:block;">How it works</span>
+    <h2>From spreadsheet to app in 3 steps</h2>
+    <div class="steps-row">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Discovery call</h3>
+        <p>Walk me through your spreadsheet and workflow. I ask the annoying-but-important questions. 30 minutes, no pitch.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Build &amp; review</h3>
+        <p>I build your app in Zoho Creator. You get early access to test, poke, and request changes. Nothing ships without your sign-off.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Launch &amp; support</h3>
+        <p>We go live. I handle data migration, team onboarding, and stick around for support. You stop worrying about "the sheet."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing reveal" id="pricing">
+  <div class="wrap">
+    <span class="section-tag" style="text-align:center;display:block;">What to expect</span>
+    <h2>Transparent pricing. No surprises.</h2>
+    <p class="pricing-sub">Most spreadsheet-to-app projects fall between $500 and $2,000. Here's what drives the number.</p>
+
+    <div class="pricing-grid">
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <div class="pricing-card-name">Starter</div>
+        <div class="pricing-card-price">$500</div>
+        <div class="pricing-card-note">One-time project fee</div>
+        <p class="pricing-card-desc">A single spreadsheet turned into a clean, working app. Best for small teams with a straightforward workflow.</p>
+        <ul class="pricing-card-list">
+          <li>1 core workflow converted</li>
+          <li>Up to 5 custom forms</li>
+          <li>Basic reports and views</li>
+          <li>Role-based access setup</li>
+          <li>1 round of revisions</li>
+        </ul>
+        <a href="https://cal.com/bokox/zoho" target="_blank" class="pricing-card-cta cta-outline">Book a call</a>
+      </div>
+
+      <!-- STANDARD -->
+      <div class="pricing-card featured">
+        <div class="pricing-popular">Most popular</div>
+        <div class="pricing-card-name">Standard</div>
+        <div class="pricing-card-price">$1,000</div>
+        <div class="pricing-card-note">One-time project fee</div>
+        <p class="pricing-card-desc">Multiple workflows, a client or team portal, and live dashboards. Covers most growing teams.</p>
+        <ul class="pricing-card-list">
+          <li>2 to 3 workflows converted</li>
+          <li>Client or team portal</li>
+          <li>Live dashboard with key metrics</li>
+          <li>Email notifications and alerts</li>
+          <li>Data migration from your sheet</li>
+          <li>2 rounds of revisions</li>
+        </ul>
+        <a href="https://cal.com/bokox/zoho" target="_blank" class="pricing-card-cta cta-filled">Book a call</a>
+      </div>
+
+      <!-- CUSTOM -->
+      <div class="pricing-card">
+        <div class="pricing-card-name">Custom</div>
+        <div class="pricing-card-price">$2,000+</div>
+        <div class="pricing-card-note">Scoped on discovery call</div>
+        <p class="pricing-card-desc">Complex systems with approval chains, integrations, and advanced automation. For operations that need real infrastructure.</p>
+        <ul class="pricing-card-list">
+          <li>Unlimited workflows</li>
+          <li>Multi-step approval flows</li>
+          <li>Third-party integrations (CRM, email, payments)</li>
+          <li>Advanced automation and scheduling</li>
+          <li>Team onboarding session</li>
+          <li>30-day post-launch support</li>
+        </ul>
+        <a href="https://cal.com/bokox/zoho" target="_blank" class="pricing-card-cta cta-outline">Book a call</a>
+      </div>
+    </div>
+
+    <p class="pricing-footer">Not sure which fits? That's what the <strong>free discovery call</strong> is for. You walk me through your spreadsheet, I'll tell you exactly which tier makes sense and why.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — Scrolling -->
+<section class="testimonials reveal">
+  <div class="testimonials-header">
+    <span class="section-tag">What clients say</span>
+    <h2>Don't take my word for it</h2>
+  </div>
+
+  <div class="testimonials-numbers">
+    <div class="t-num"><div class="big">70+</div><div class="lbl">Projects launched</div></div>
+    <div class="t-num"><div class="big">40+</div><div class="lbl">Clients served</div></div>
+    <div class="t-num"><div class="big">96%</div><div class="lbl">Satisfaction rate</div></div>
+  </div>
+
+  <div class="t-marquee">
+    <div class="t-track">
+      <!-- Card 1 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>We had a Google Sheet with 47 tabs tracking inventory across 3 warehouses. Boko turned it into an app where each warehouse manager logs in and sees only their stock. Took him about two weeks. We should have done this two years ago.</blockquote>
+        <div class="t-card-result">Result: 12 hrs/week saved on inventory tracking</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">RM</div>
+          <div>
+            <div class="t-card-name">Rachel Mensah</div>
+            <div class="t-card-role">Operations Manager, QuickShip Logistics (UAE)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Our clients kept emailing us asking "where's my project at?" every single day. Boko built a portal where they just log in and see the status themselves. My inbox went from 40 update emails a day to maybe 5. Actual lifesaver.</blockquote>
+        <div class="t-card-result">Result: Client portal replaced 35+ daily status emails</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">DK</div>
+          <div>
+            <div class="t-card-name">Daniel Kofi</div>
+            <div class="t-card-role">Founder, Stackhaus Digital Agency (UK)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>I was copy-pasting client data between 4 different spreadsheets to generate invoices. Now there's a button. One click, invoice goes out. I genuinely didn't think it could be that simple. Boko made me feel dumb for not doing this sooner.</blockquote>
+        <div class="t-card-result">Result: Invoice generation went from 25 min to 1 click</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">AJ</div>
+          <div>
+            <div class="t-card-name">Amara Johnson</div>
+            <div class="t-card-role">CEO, Brixton Property Management (US)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>We're a 15-person recruitment agency and our "database" was a color-coded spreadsheet that only our office manager understood. Boko migrated everything into Zoho Creator and now anyone on the team can search candidates, log interviews, and track placements. It actually works like a real system now.</blockquote>
+        <div class="t-card-result">Result: Candidate tracking time cut by 60%</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">TN</div>
+          <div>
+            <div class="t-card-name">Tariq Nasir</div>
+            <div class="t-card-role">Managing Director, Apex Talent Solutions (UAE)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Boko understood what we needed faster than I could explain it. I showed him our messy expense tracking sheet on a 30-minute call, and three days later I had a working prototype with approval workflows. My finance team almost cried with joy.</blockquote>
+        <div class="t-card-result">Result: Expense approvals went from 3 days to 4 hours</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">SS</div>
+          <div>
+            <div class="t-card-name">Sarah Steinberg</div>
+            <div class="t-card-role">COO, Mapleleaf Consulting Group (Canada)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>I run a training company and we tracked student enrollment, attendance, and certificates in one giant spreadsheet. It broke constantly. Boko built us a proper app with automated certificate generation. Students now get their certificates by email the same day they complete training. Magic.</blockquote>
+        <div class="t-card-result">Result: Certificate delivery went from 2 weeks to same-day</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">FO</div>
+          <div>
+            <div class="t-card-name">Funmi Olawale</div>
+            <div class="t-card-role">Director, ProSkill Academy (Nigeria)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DUPLICATE SET for seamless loop -->
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>We had a Google Sheet with 47 tabs tracking inventory across 3 warehouses. Boko turned it into an app where each warehouse manager logs in and sees only their stock. Took him about two weeks. We should have done this two years ago.</blockquote>
+        <div class="t-card-result">Result: 12 hrs/week saved on inventory tracking</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">RM</div>
+          <div>
+            <div class="t-card-name">Rachel Mensah</div>
+            <div class="t-card-role">Operations Manager, QuickShip Logistics (UAE)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Our clients kept emailing us asking "where's my project at?" every single day. Boko built a portal where they just log in and see the status themselves. My inbox went from 40 update emails a day to maybe 5. Actual lifesaver.</blockquote>
+        <div class="t-card-result">Result: Client portal replaced 35+ daily status emails</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">DK</div>
+          <div>
+            <div class="t-card-name">Daniel Kofi</div>
+            <div class="t-card-role">Founder, Stackhaus Digital Agency (UK)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>I was copy-pasting client data between 4 different spreadsheets to generate invoices. Now there's a button. One click, invoice goes out. I genuinely didn't think it could be that simple. Boko made me feel dumb for not doing this sooner.</blockquote>
+        <div class="t-card-result">Result: Invoice generation went from 25 min to 1 click</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">AJ</div>
+          <div>
+            <div class="t-card-name">Amara Johnson</div>
+            <div class="t-card-role">CEO, Brixton Property Management (US)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>We're a 15-person recruitment agency and our "database" was a color-coded spreadsheet that only our office manager understood. Boko migrated everything into Zoho Creator and now anyone on the team can search candidates, log interviews, and track placements. It actually works like a real system now.</blockquote>
+        <div class="t-card-result">Result: Candidate tracking time cut by 60%</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">TN</div>
+          <div>
+            <div class="t-card-name">Tariq Nasir</div>
+            <div class="t-card-role">Managing Director, Apex Talent Solutions (UAE)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>Boko understood what we needed faster than I could explain it. I showed him our messy expense tracking sheet on a 30-minute call, and three days later I had a working prototype with approval workflows. My finance team almost cried with joy.</blockquote>
+        <div class="t-card-result">Result: Expense approvals went from 3 days to 4 hours</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">SS</div>
+          <div>
+            <div class="t-card-name">Sarah Steinberg</div>
+            <div class="t-card-role">COO, Mapleleaf Consulting Group (Canada)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card">
+        <div class="t-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>I run a training company and we tracked student enrollment, attendance, and certificates in one giant spreadsheet. It broke constantly. Boko built us a proper app with automated certificate generation. Students now get their certificates by email the same day they complete training. Magic.</blockquote>
+        <div class="t-card-result">Result: Certificate delivery went from 2 weeks to same-day</div>
+        <div class="t-card-footer">
+          <div class="t-card-avatar">FO</div>
+          <div>
+            <div class="t-card-name">Funmi Olawale</div>
+            <div class="t-card-role">Director, ProSkill Academy (Nigeria)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal">
+  <div class="wrap">
+    <div class="about-box">
+      <div>
+        <div class="about-avatar"><img src="profile/Boko Isaac Headshot Mar 16 2026.jpeg" alt="Boko Isaac"></div>
+      </div>
+      <div class="about-text">
+        <h3>Boko Isaac</h3>
+        <div class="title">Zoho Creator Developer &amp; Systems Architect</div>
+        <p>I've spent 7+ years helping businesses replace manual workflows with systems that actually work. Zoho Creator is my tool of choice because it's fast to build on, powerful enough for real business logic, and doesn't require your team to learn anything new.</p>
+        <p>If you're stuck in spreadsheet hell, I can probably help.</p>
+        <div class="about-tags">
+          <span>Zoho Creator Certified</span>
+          <span>Zoho CRM Admin</span>
+          <span>70+ Projects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta reveal">
+  <div class="wrap">
+    <div class="final-cta-box">
+      <h2>Ready to kill the spreadsheet?</h2>
+      <p>Book a free 30-minute discovery call. Walk me through your workflow, and I'll tell you exactly what a custom app would look like and what it would cost.</p>
+      <a href="https://cal.com/bokox/zoho" target="_blank" class="btn-gold">
+        Book your free discovery call
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <div class="final-sub">No commitment. No pitch deck. Just a conversation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-left">&copy; 2026 Boko Isaac &middot; <a href="mailto:boko@elivate.io" style="text-decoration:none;">boko@elivate.io</a></div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/ielivate/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/elivatepro" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/bokoisaac/" target="_blank">Instagram</a>
+        <a href="https://twitter.com/bokoisaac" target="_blank">X</a>
+        <a href="https://bokoisaac.pro" target="_blank">Portfolio</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+  <button class="lightbox-nav prev" onclick="navLightbox(event, -1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-nav next" onclick="navLightbox(event, 1)">&#8250;</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<!-- Zoho SalesIQ Chat Widget -->
+<script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqbbb389ecb09649456f40491d89d75426bb7be1712c3ee889cc4e165ef92fa4bd" defer></script>
+
+<script>
+// Reveal animation
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Lightbox
+const galleries = {
+  before: [
+    { src: 'before/Sample Inventory v1 - 1.png', caption: 'Spreadsheet — Copyright Tab' },
+    { src: 'before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_02_AM.png', caption: 'Spreadsheet — Inventory Overview' },
+    { src: 'before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM.png', caption: 'Spreadsheet — Inventory Detail' },
+    { src: 'before/Sample-Inventory-v1-Google-Sheets-04-01-2026_12_03_AM (1).png', caption: 'Spreadsheet — Family Wealth Tab' }
+  ],
+  after: [
+    { src: 'after/Family-Wealth-Inventory-Login-04-01-2026_12_08_AM.png', caption: 'Custom App — Login Page' },
+    { src: 'after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Client-Dashboard-04-01-2026_12_05_AM.png', caption: 'Custom App — Client Dashboard' },
+    { src: 'after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Firm-Dashboard-04-01-2026_12_10_AM.png', caption: 'Custom App — Firm Dashboard' },
+    { src: 'after/Legacy-Gurus-PLLC-Family-Wealth-Inventory-Admin-Dashboard-04-01-2026_12_12_AM.png', caption: 'Custom App — Admin Dashboard' }
+  ]
+};
+
+let currentGallery = null;
+let currentIndex = 0;
+
+function openLightbox(gallery, index) {
+  currentGallery = gallery;
+  currentIndex = index;
+  showLightboxImage();
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e.target.closest('.lightbox-nav')) return;
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(e, dir) {
+  e.stopPropagation();
+  const images = galleries[currentGallery];
+  currentIndex = (currentIndex + dir + images.length) % images.length;
+  showLightboxImage();
+}
+
+function showLightboxImage() {
+  const item = galleries[currentGallery][currentIndex];
+  document.getElementById('lightbox-img').src = item.src;
+  document.getElementById('lightbox-caption').textContent = item.caption + ' (' + (currentIndex + 1) + '/' + galleries[currentGallery].length + ')';
+}
+
+document.addEventListener('keydown', function(e) {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') { lb.classList.remove('active'); document.body.style.overflow = ''; }
+  if (e.key === 'ArrowLeft') navLightbox(e, -1);
+  if (e.key === 'ArrowRight') navLightbox(e, 1);
+});
+</script>
+
+</body>
+</html>
