@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>You're Booked! | Boko Isaac</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Facebook Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js'); fbq('init', '4405369613079180'); fbq('track', 'PageView'); fbq('track', 'Schedule');</script><noscript> <img height="1" width="1" src="https://www.facebook.com/tr?id=4405369613079180&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<style>
+:root {
+  --cream: #fdfaf3;
+  --cream-dark: #f5f0e3;
+  --ink: #1a1714;
+  --ink-soft: #3d3830;
+  --ink-muted: #7a7265;
+  --ink-faint: #b5ad9f;
+  --gold: #c4960a;
+  --gold-light: #f0d96b;
+  --gold-bg: #fdf6d8;
+  --green: #1e7a5e;
+  --green-bg: #edf7f3;
+  --white: #ffffff;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Onest', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Topbar */
+.topbar {
+  background: rgba(253,250,243,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid rgba(26,23,20,0.07);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-name {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Main content */
+.thank-you {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 28px;
+}
+
+.thank-you-box {
+  max-width: 620px;
+  text-align: center;
+}
+
+.check-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--green-bg);
+  border: 2px solid rgba(30,122,94,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px;
+  animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.check-circle svg {
+  width: 36px;
+  height: 36px;
+  color: var(--green);
+  animation: drawCheck 0.4s 0.3s ease both;
+}
+
+@keyframes drawCheck {
+  0% { opacity: 0; transform: scale(0.5); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.thank-you-box h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.thank-you-box h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.thank-you-box .lead {
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+}
+
+/* Steps */
+.next-steps {
+  background: var(--white);
+  border: 1.5px solid rgba(26,23,20,0.06);
+  border-radius: 14px;
+  padding: 32px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.next-steps h3 {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(26,23,20,0.05);
+}
+
+.step-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold-bg);
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+
+.step-content h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  color: var(--ink);
+}
+
+.step-content p {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+/* CTA buttons */
+.thank-you-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--sans);
+}
+
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(26,23,20,0.18);
+}
+
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-weight: 500;
+  font-size: 0.92rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1.5px solid rgba(26,23,20,0.12);
+  transition: all 0.2s;
+  font-family: var(--sans);
+}
+
+.btn-light:hover {
+  border-color: rgba(26,23,20,0.25);
+  color: var(--ink);
+}
+
+/* Footer */
+.footer {
+  padding: 32px 28px;
+  border-top: 1.5px solid rgba(26,23,20,0.06);
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-left {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--ink); }
+
+@media (max-width: 480px) {
+  .thank-you-actions { flex-direction: column; }
+  .btn-dark, .btn-light { width: 100%; justify-content: center; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topbar">
+  <a href="https://bokoisaac.pro" target="_blank" class="topbar-name">Boko Isaac</a>
+</nav>
+
+<!-- THANK YOU -->
+<main class="thank-you">
+  <div class="thank-you-box">
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <h1>You're <em>booked</em>.</h1>
+    <p class="lead">I just got your booking confirmation. Check your inbox for the calendar invite with the meeting link. Looking forward to hearing about your workflow.</p>
+
+    <div class="next-steps">
+      <h3>What happens next</h3>
+      <div class="step-row">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Check your email</h4>
+          <p>You'll receive a calendar invite with the video call link within a few minutes.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Prep your spreadsheet</h4>
+          <p>Have your current spreadsheet open during our call. The messier, the better &mdash; that's the whole point.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>We talk for 30 minutes</h4>
+          <p>I'll ask about your workflow, pain points, and what "fixed" looks like for you. No pitch, just a conversation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="thank-you-actions">
+      <a href="/" class="btn-dark">
+        Back to homepage
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="https://bokoisaac.pro/work" target="_blank" class="btn-light">See past projects</a>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">&copy; 2026 Boko Isaac &middot; <a href="mailto:boko@elivate.io" style="text-decoration:none;">boko@elivate.io</a></div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/ielivate/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/elivatepro" target="_blank">GitHub</a>
+      <a href="https://www.instagram.com/bokoisaac/" target="_blank">Instagram</a>
+      <a href="https://twitter.com/bokoisaac" target="_blank">X</a>
+      <a href="https://bokoisaac.pro" target="_blank">Portfolio</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Zoho SalesIQ Chat Widget -->
+<script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siqbbb389ecb09649456f40491d89d75426bb7be1712c3ee889cc4e165ef92fa4bd" defer></script>
+
+</body>
+</html>
