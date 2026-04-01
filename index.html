@@ -39,6 +39,15 @@
 <script>
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", {origin:"https://cal.com"});
+
+function openCal() {
+  Cal('ui', {styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});
+  Cal('modal', {calLink:'bokox/zoho'});
+}
+
+Cal("on", {action: "bookingSuccessful", callback: function() {
+  window.location.href = "/thank-you";
+}});
 </script>
 <style>
 /* ========================================
@@ -1410,7 +1419,7 @@ img { max-width: 100%; display: block; }
 <!-- NAV -->
 <nav class="topbar">
   <a href="https://bokoisaac.pro" target="_blank" class="topbar-name" style="text-decoration:none;">Boko Isaac</a>
-  <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="topbar-cta">
+  <a href="#" onclick="openCal();return false;" class="topbar-cta">
     Book a free call
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
   </a>
@@ -1426,7 +1435,7 @@ img { max-width: 100%; display: block; }
     <h1>Turn your messy spreadsheet into a <em>real business app</em></h1>
     <p class="hero-p">You've outgrown Google Sheets. I build custom Zoho Creator apps that replace the chaos with portals, dashboards, approval flows, and workflows that actually scale with your team.</p>
     <div class="hero-actions">
-      <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="btn-dark">
+      <a href="#" onclick="openCal();return false;" class="btn-dark">
         Book your free discovery call
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -1642,7 +1651,7 @@ img { max-width: 100%; display: block; }
           <li>Role-based access setup</li>
           <li>1 round of revisions</li>
         </ul>
-        <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="pricing-card-cta cta-outline">Book a call</a>
+        <a href="#" onclick="openCal();return false;" class="pricing-card-cta cta-outline">Book a call</a>
       </div>
 
       <!-- STANDARD -->
@@ -1660,7 +1669,7 @@ img { max-width: 100%; display: block; }
           <li>Data migration from your sheet</li>
           <li>2 rounds of revisions</li>
         </ul>
-        <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="pricing-card-cta cta-filled">Book a call</a>
+        <a href="#" onclick="openCal();return false;" class="pricing-card-cta cta-filled">Book a call</a>
       </div>
 
       <!-- CUSTOM -->
@@ -1677,7 +1686,7 @@ img { max-width: 100%; display: block; }
           <li>Team onboarding session</li>
           <li>30-day post-launch support</li>
         </ul>
-        <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="pricing-card-cta cta-outline">Book a call</a>
+        <a href="#" onclick="openCal();return false;" class="pricing-card-cta cta-outline">Book a call</a>
       </div>
     </div>
 
@@ -1894,7 +1903,7 @@ img { max-width: 100%; display: block; }
     <div class="final-cta-box">
       <h2>Ready to kill the spreadsheet?</h2>
       <p>Book a free 30-minute discovery call. Walk me through your workflow, and I'll tell you exactly what a custom app would look like and what it would cost.</p>
-      <a href="#" onclick="Cal('ui',{styles:{branding:{brandColor:'#1a1714'}},hideEventTypeDetails:false,layout:'month_view'});Cal('modal',{calLink:'bokox/zoho'});return false;" class="btn-gold">
+      <a href="#" onclick="openCal();return false;" class="btn-gold">
         Book your free discovery call
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
